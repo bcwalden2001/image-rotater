@@ -1,6 +1,6 @@
 ## Summary
 
-This program performs image rotation on a raster image using a custom rotation matrix, transforming the resulting image into an expanded canvas (or container and mapping each original pixel to its rotated position. After rotation data is given by the user, the program will display the newly-constructed image in a window and log error metrics.
+This program performs image rotation on a raster image using a custom rotation matrix, transforming the resulting image into an expanded container and mapping each original pixel to its rotated position. After rotation data is given by the user, the program will display the newly-constructed image in a window and log error metrics.
 
 ## Methodology
 
