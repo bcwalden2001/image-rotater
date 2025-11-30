@@ -14,10 +14,14 @@ Every pixel in the original image is translated into a centered coordinate syste
 
 Finally, the rotated floating-point image is converted to an 8-bit format so it can be displayed.
 
-<img width="538" height="663" alt="image" src="https://github.com/user-attachments/assets/171c573e-c20b-43a4-be18-d92b1536ce6f" />
+## Images at Intermediate Stages
+
+<img width="385" height="595" alt="image" src="https://github.com/user-attachments/assets/60b3e6de-e4ce-4c5b-aed2-be3d76f8c2e0" />
 
 ## Analysis
 
 <img width="781" height="303" alt="image" src="https://github.com/user-attachments/assets/a87acf64-af8d-4e10-b238-d4089e29bc74" />
 
+## Conclusion
 
+Based on the error calculation chart above, there is less variation in absolute color error than pixel rounding error which means that RGB values are preserved fairly well and no signifcant change in color data can be seen for repeating rotations. Pixel locations, however, are being displaced differently across repeated rotations due to the limitations of rounding floating-point coordinates to integers. These results show that the rotation algorithms are effective at preserving what is displayed but less so at determining where the pixels ends up.
