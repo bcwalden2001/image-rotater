@@ -14,7 +14,7 @@ Every pixel in the original image is translated into a centered coordinate syste
 
 Finally, the rotated floating-point image is converted to an 8-bit format so it can be displayed.
 
-## Images at Intermediate Stages
+Varying levels of rotation are seen below to show pixel accuracy.
 
 <img width="385" height="595" alt="image" src="https://github.com/user-attachments/assets/60b3e6de-e4ce-4c5b-aed2-be3d76f8c2e0" />
 
