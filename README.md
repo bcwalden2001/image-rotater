@@ -1,6 +1,6 @@
 ## Summary
 
-This program performs repeated image rotations using a manually implemented rotation matrix, dynamically computes the resulting image’s expanded canvas size, maps each original pixel to its rotated position, and measures two forms of error: (1) absolute RGB color differences and (2) pixel rounding displacement. After rotation data is given by the user in the console, the program will display the newly constructed image in a window and log error metrics.
+This program performs image rotation on a raster image using a manually implemented rotation matrix, transforming the resulting image into an expanded canvas (or container), mapping each original pixel to its rotated position. After rotation data is given by the user, the program will display the newly-constructed image in a window and log error metrics.
 
 ## Methodology
 
