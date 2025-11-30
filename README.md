@@ -13,3 +13,11 @@ Every pixel in the original image is translated into a centered coordinate syste
 • **pixel rounding error**—the Euclidean distance between the exact floating-point coordinate and the final, rounded integer pixel coordinate.
 
 Finally, the rotated floating-point image is converted to an 8-bit format so it can be displayed.
+
+<img width="538" height="663" alt="image" src="https://github.com/user-attachments/assets/171c573e-c20b-43a4-be18-d92b1536ce6f" />
+
+## Analysis
+
+<img width="781" height="303" alt="image" src="https://github.com/user-attachments/assets/a87acf64-af8d-4e10-b238-d4089e29bc74" />
+
+
