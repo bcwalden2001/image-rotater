@@ -8,15 +8,18 @@ The program begins by importing OpenCV, NumPy, and several trigonometric utiliti
 
 A custom matrix multiplication function substitutes NumPy’s **dot** or **matmul** built-ins along with a custom helper function to convert floating-point RGB values back to 8-bit integers.
 
-In order to rotate the image, the user provides the number of repeated rotations and the rotation angle. The program constructs a 2×2 rotation matrix and applies it the pixel and the four corner points of the image, enabling computation of the new bounding box after rotation. This ensures the rotated output image has the correct dimensions, especially to avoid clipping of corners. A total rotation matrix is then calculated by multiplying the angle by the number of rotations (rather than rotating the image step-by-step), reducing compounding rounding error.
+The program constructs a 2×2 rotation matrix and applies it the pixel and the four corner points of the image, enabling dynamic computation of the new bounding box during rotation. This ensures the rotated output image has the correct dimensions to hold the original image so that to clipping of corners is avoided. 
+
+A total rotation matrix is then calculated by multiplying the angle by the number of rotations (rather than rotating the image step-by-step), reducing compounding rounding error.
 
 Every pixel in the original image is translated into a centered coordinate system, multiplied by the total rotation matrix, and mapped into the new output frame. The code tracks two error metrics during this process:
-• **absolute color error**—difference between the original pixel’s RGB and the value stored at the rotated pixel’s new location, and
+
+• **absolute color error**—difference between the original pixel’s RGB and the value stored at the rotated pixel’s new location.
 • **pixel rounding error**—the Euclidean distance between the exact floating-point coordinate and the final, rounded integer pixel coordinate.
 
 Finally, the rotated floating-point image is converted to an 8-bit format so it can be displayed.
 
-The images below show how much the degree of rotation has an affect on the accuracy of pixels being re-constructed.
+The images below show how much the degree of rotation has an affect on the accuracy of pixels after displacement.
 
 <img width="385" height="595" alt="image" src="https://github.com/user-attachments/assets/60b3e6de-e4ce-4c5b-aed2-be3d76f8c2e0" />
 
