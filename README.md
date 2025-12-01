@@ -1,25 +1,21 @@
 ## Summary
 
-This program performs image rotation on a raster image using a custom rotation matrix, transforming the resulting image inside of an expanded container and mapping each original pixel to a new position. After rotation data is given by the user, the program displays the newly-constructed image in a window and logs error metrics.
+This program rotates a raster image by a user-specified angle and number of repetitions. It maps each original pixel to a new position on a dynamically resized canvas to prevent clipping, displays the rotated image, and calculates error metrics to analyze pixel displacement and color fidelity.
 
 ## Methodology
-
-The program begins by importing OpenCV, NumPy, and several trigonometric utilities, and loads an image normalized to floating-point precision. 
-
-A custom matrix multiplication function substitutes NumPy’s **dot** or **matmul** built-ins along with a custom helper function to convert floating-point RGB values back to 8-bit integers.
-
-The program constructs a 2×2 rotation matrix and applies it the pixel and the four corner points of the image, enabling dynamic computation of the new bounding box during rotation. This ensures the rotated output image has the correct dimensions to hold the original image so that to clipping of corners is avoided. 
-
-A total rotation matrix is then calculated by multiplying the angle by the number of rotations (rather than rotating the image step-by-step), reducing compounding rounding error.
-
-Every pixel in the original image is translated into a centered coordinate system, multiplied by the total rotation matrix, and mapped into the new output frame. The code tracks two error metrics during this process:
-
-• **absolute color error**—difference between the original pixel’s RGB and the value stored at the rotated pixel’s new location.
-• **pixel rounding error**—the Euclidean distance between the exact floating-point coordinate and the final, rounded integer pixel coordinate.
-
-Finally, the rotated floating-point image is converted to an 8-bit format so it can be displayed.
-
-The images below show how much the degree of rotation has an affect on the accuracy of pixels after displacement.
+	1.	Setup: The program imports OpenCV, NumPy, and math utilities, then loads the image normalized to floating-point precision.
+	2.	Matrix Operations: A custom matrix multiplication function is used instead of NumPy’s built-in operations. A helper function converts floating-point RGB values back to 8-bit integers for display.
+	3.	Rotation Calculation:
+	•	A 2×2 rotation matrix is constructed based on the user-defined angle.
+	•	The four corners of the image are rotated to compute the new canvas size, ensuring no clipping occurs.
+	•	A total rotation matrix is calculated by multiplying the angle by the number of rotations, reducing compounding rounding errors.
+	4.	Pixel Mapping:
+	•	Each pixel is translated to a centered coordinate system and multiplied by the total rotation matrix.
+	•	The transformed coordinates are rounded and mapped to the new output frame.
+	5.	Error Tracking: Two metrics are recorded during rotation:
+	•	Absolute color error: Difference between the original pixel RGB values and the rotated pixel’s RGB values.
+	•	Pixel rounding error: Euclidean distance between the exact floating-point coordinate and the final integer pixel coordinate.
+	6.	Display: The rotated floating-point image is converted to 8-bit format and displayed in a window. Error metrics are printed to the console.
 
 <img width="385" height="595" alt="image" src="https://github.com/user-attachments/assets/60b3e6de-e4ce-4c5b-aed2-be3d76f8c2e0" />
 
@@ -27,6 +23,8 @@ The images below show how much the degree of rotation has an affect on the accur
 
 ## Conclusion
 
-Based on the error calculation chart above, there is less variation in absolute color error than pixel rounding error which means that RGB values are preserved fairly well and no significant change in color data can be seen for repeating rotations. 
+The program preserves RGB values well, as shown by low absolute color error. Pixel rounding error, however, accumulates across multiple rotations, causing slight displacement of pixel positions. This demonstrates the trade-off between maintaining color fidelity and the limitations of rounding in repeated geometric transformations.
 
-Pixels, however, are being displaced differently across repeated rotations due to the limitations of rounding floating-point coordinates to integers.
+
+
+
