@@ -1,10 +1,12 @@
 ## Summary
 
-This program performs image rotation on a raster image using a custom rotation matrix, transforming the resulting image into an expanded container and mapping each original pixel to its rotated position. After rotation data is given by the user, the program will display the newly-constructed image in a window and log error metrics.
+This program performs image rotation on a raster image using a custom rotation matrix, transforming the resulting image inside of an expanded container and mapping each original pixel to a new position. After rotation data is given by the user, the program displays the newly-constructed image in a window and logs error metrics.
 
 ## Methodology
 
-The program begins by importing OpenCV, NumPy, and several trigonometric utilities, and loads an image normalized to floating-point precision. A custom matrix multiplication function is as well. NumPy’s **dot** or **matmul** built-ins would work too. A helper function was also created to convert floating-point RGB values back to 8-bit integers.
+The program begins by importing OpenCV, NumPy, and several trigonometric utilities, and loads an image normalized to floating-point precision. 
+
+A custom matrix multiplication function substitutes NumPy’s **dot** or **matmul** built-ins along with a custom helper function to convert floating-point RGB values back to 8-bit integers.
 
 In order to rotate the image, the user provides the number of repeated rotations and the rotation angle. The program constructs a 2×2 rotation matrix and applies it the pixel and the four corner points of the image, enabling computation of the new bounding box after rotation. This ensures the rotated output image has the correct dimensions, especially to avoid clipping of corners. A total rotation matrix is then calculated by multiplying the angle by the number of rotations (rather than rotating the image step-by-step), reducing compounding rounding error.
 
