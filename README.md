@@ -25,6 +25,8 @@ Two metrics are recorded during rotation:
 ### Display: 
 The rotated floating-point image is converted to 8-bit format and displayed in a window. Error metrics are printed to the console.
 
+### Results
+
 <img width="385" height="595" alt="image" src="https://github.com/user-attachments/assets/60b3e6de-e4ce-4c5b-aed2-be3d76f8c2e0" />
 
 <img width="781" height="303" alt="image" src="https://github.com/user-attachments/assets/a87acf64-af8d-4e10-b238-d4089e29bc74" />
