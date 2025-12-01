@@ -22,4 +22,6 @@ The images below show how much the degree of rotation has an affect on the accur
 
 ## Conclusion
 
-Based on the error calculation chart above, there is less variation in absolute color error than pixel rounding error which means that RGB values are preserved fairly well and no signifcant change in color data can be seen for repeating rotations. Pixel locations, however, are being displaced differently across repeated rotations due to the limitations of rounding floating-point coordinates to integers. These results show that the rotation algorithms are effective at preserving what is displayed but less so at determining where the pixels ends up.
+Based on the error calculation chart above, there is less variation in absolute color error than pixel rounding error which means that RGB values are preserved fairly well and no significant change in color data can be seen for repeating rotations. 
+
+Pixels, however, are being displaced differently across repeated rotations due to the limitations of rounding floating-point coordinates to integers.
